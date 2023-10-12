@@ -16,6 +16,8 @@ def clean_filename(filename):
 
 
 def create_directory(directory):
+    directory = re.sub(r'[\/:*?"<>|]', '_', directory)
+
     if not os.path.exists(directory):
         os.makedirs(directory)
 
@@ -37,6 +39,9 @@ def download_video_with_progress(video, output_path):
 
 def download_and_convert(video, original_video_dir, mp3_dir, playlist_title):
     mp3_subfolder = os.path.join(mp3_dir, playlist_title)
+
+    mp3_subfolder = re.sub(r'[?]', '', mp3_subfolder)
+
     create_directory(mp3_subfolder)
 
     cleaned_video_title = clean_filename(video.title)
