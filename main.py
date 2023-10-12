@@ -43,7 +43,13 @@ def download_and_convert(video, original_video_dir, mp3_dir, playlist_title):
 
     video_filename = os.path.join(
         original_video_dir, f'{cleaned_video_title}.mp4')
-    mp3_filename = os.path.join(mp3_subfolder, f'{cleaned_video_title}.mp3')
+
+    videos_list = list(playlist.videos)
+
+    video_position = videos_list.index(video) + 1
+
+    mp3_filename = os.path.join(
+        mp3_subfolder, f'{video_position} - {cleaned_video_title}.mp3')
 
     if os.path.exists(mp3_filename):
         print(
