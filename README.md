@@ -23,9 +23,9 @@ You can install these libraries using pip:
 
 ```bash
 pip install pytube moviepy tqdm
-
+```
 or
-
+```bash
 pip install -r requeriments.txt
 ```
 
